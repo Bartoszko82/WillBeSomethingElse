@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.Sda.project.dao.UserDao;
+import com.sda.project.dao.UserDao;
 import com.sda.project.model.User;
 
 @Service("userService")
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public void updateUser(User user) {
-		User entity = dao.findById(user.getId());
+		User entity = dao.findUserById(user.getId());
 		if(entity!=null){
 			entity.setLogin(user.getLogin());
 		}

@@ -21,8 +21,24 @@ import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="USER")
+@Table(name="user")
 public class User {
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public List<Item> getItemsList() {
+		return itemsList;
+	}
+
+	public void setItemsList(List<Item> itemsList) {
+		this.itemsList = itemsList;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +48,7 @@ public class User {
 	@Column(name = "LOGIN", nullable = false)
 	private String login;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "assignedTo")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asignedTo")
 	private List<Item> itemsList;
 	
 	public int getId() {

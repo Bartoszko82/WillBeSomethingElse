@@ -10,9 +10,11 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-@Table(name="TAG")
+@Table(name="tag")
 public class Tag {
 	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int tag_id;
@@ -20,6 +22,14 @@ public class Tag {
 	@Size(min=3, max=10)
 	@Column(name = "NAME", nullable = false)
 	private String name;
+	
+	public int getTag_id() {
+		return tag_id;
+	}
+
+	public void setTag_id(int tag_id) {
+		this.tag_id = tag_id;
+	}
 	
 	public String getName() {
 		return name;

@@ -20,9 +20,9 @@ import org.hibernate.validator.constraints.Range;
 
 
 @Entity
-@Table(name="ITEM")
+@Table(name="item")
 public class Item {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int item_id;
@@ -78,6 +78,93 @@ public class Item {
 //	createdBy*
 //	modifiedBy*
 	
+	public int getItem_id() {
+		return item_id;
+	}
+
+	public void setItem_id(int item_id) {
+		this.item_id = item_id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+	public ItemType getType() {
+		return type;
+	}
+
+	public void setType(ItemType type) {
+		this.type = type;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
+	public int getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(int severity) {
+		this.severity = severity;
+	}
+
+	public User getAsignedTo() {
+		return asignedTo;
+	}
+
+	public void setAsignedTo(User asignedTo) {
+		this.asignedTo = asignedTo;
+	}
+
+	public ItemState getState() {
+		return state;
+	}
+
+	public void setState(ItemState state) {
+		this.state = state;
+	}
+
+	public int getOriginalEstimate() {
+		return originalEstimate;
+	}
+
+	public void setOriginalEstimate(int originalEstimate) {
+		this.originalEstimate = originalEstimate;
+	}
+
+	public int getRemainingTime() {
+		return remainingTime;
+	}
+
+	public void setRemainingTime(int remainingTime) {
+		this.remainingTime = remainingTime;
+	}
+
+	public int getCompletitionTime() {
+		return completitionTime;
+	}
+
+	public void setCompletitionTime(int completitionTime) {
+		this.completitionTime = completitionTime;
+	}
 	
 }
 

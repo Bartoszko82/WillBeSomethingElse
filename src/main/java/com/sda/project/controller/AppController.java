@@ -43,24 +43,24 @@ public class AppController {
 	/*
 	 * This method will provide the medium to add a new employee.
 	 */
-	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/newUser" }, method = RequestMethod.GET)
 	public String newEmployee(ModelMap model) {
-		User employee = new User();
-		model.addAttribute("employee", employee);
+		User user = new User();
+		model.addAttribute("user", user);
 		model.addAttribute("edit", false);
-		return "registration";
+		return "userRegistration";
 	}
 
 	/*
 	 * This method will be called on form submission, handling POST request for
 	 * saving employee in database. It also validates the user input
 	 */
-	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/newUser" }, method = RequestMethod.POST)
 	public String saveEmployee(@Valid User user, BindingResult result,
 			ModelMap model) {
 
 		if (result.hasErrors()) {
-			return "registration";
+			return "userRegistration";
 		}
 
 		/*
@@ -72,14 +72,14 @@ public class AppController {
 		 * 
 		 */
 		if(!service.isUserIdUnique(user.getId())){
-			FieldError idError =new FieldError("user","id",messageSource.getMessage("non.unique.id", new Integer[]{user.getId()}, Locale.getDefault()));
+			FieldError idError = new FieldError("user","id",messageSource.getMessage("non.unique.id", new Integer[]{user.getId()}, Locale.getDefault()));
 		    result.addError(idError);
-			return "registration";
+			return "userRegistration";
 		}
 		
 		service.saveUser(user);
 
-		model.addAttribute("success", "Employee " + user.getLogin() + " registered successfully");
+		model.addAttribute("success", "User " + user.getLogin() + " registered successfully");
 		return "success";
 	}
 

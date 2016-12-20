@@ -35,8 +35,8 @@ public class AppController {
 	@RequestMapping(value = { "/", "/main"}, method = RequestMethod.GET)
 	public String showMain(ModelMap model) {
 
-//		List<User> employees = service.findAllUsers();
-//		model.addAttribute("employees", employees);
+//		List<User> users = service.findAllUsers();
+//		model.addAttribute("main", users);
 		return "main";
 	}
 

@@ -14,7 +14,7 @@ import com.sda.project.model.User;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserDao dao;
+	UserDao dao;
 	
 	public User findUserById(int id) {
 		return dao.findUserById(id);

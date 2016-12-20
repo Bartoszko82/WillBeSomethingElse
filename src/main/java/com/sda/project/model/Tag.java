@@ -15,7 +15,7 @@ public class Tag {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int tag_id;
 
 	@Size(min=3, max=10)
 	@Column(name = "NAME", nullable = false)
@@ -30,7 +30,7 @@ public class Tag {
 	}
 
 	public int getId() {
-		return id;
+		return tag_id;
 	}
 }
 

@@ -154,12 +154,12 @@
 					<version>2.4</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<warName>final</warName>
+						<warName>SDAFinalProject</warName>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<finalName>SDAFinalProject</finalName>
+		<finalName>SpringHibernateExample</finalName>
 	</build>
 </project>

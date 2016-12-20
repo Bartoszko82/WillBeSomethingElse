@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.sda.project.dao.AbstractDao;
 import com.sda.project.model.User;
 
-@Repository("UserDao")
+@Repository("userDao")
 public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 
 	public User findUserById(int id) {

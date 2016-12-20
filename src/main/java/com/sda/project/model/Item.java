@@ -3,13 +3,15 @@ package com.sda.project.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -23,7 +25,7 @@ public class Item {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int item_id;
 	
 	@NotEmpty
 	@Size(min=1, max=100)
@@ -35,6 +37,7 @@ public class Item {
 	@Column(name="BODY", nullable = false)
 	private String body;
 	
+	@Enumerated(EnumType.STRING)
 	private ItemType type;
 	
 	@NotNull
@@ -47,20 +50,27 @@ public class Item {
 	@Column(name = "SEVERITY", nullable = false)
 	private int severity;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
-	private Tag tag;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+//	private List<Tag> tags;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER_ID", nullable = false)
 	private User asignedTo;
 	
+	
+	@Enumerated(EnumType.STRING)
 	private ItemState state;
 	
 	@NotNull
+	@Column(name = "ESTIMATE", nullable = false)
 	private int originalEstimate;
 	
 	@NotNull
+	@Column(name = "REMAINING", nullable = false)
 	private int remainingTime;
 	
 	@NotNull
+	@Column(name = "COMPLETITION", nullable = false)
 	private int completitionTime;
 	
 	

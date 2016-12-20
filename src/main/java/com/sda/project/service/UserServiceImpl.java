@@ -38,6 +38,10 @@ public class UserServiceImpl implements UserService {
 	public List<User> findAllUsers() {
 		return dao.findAllUsers();
 	}
-
+	
+	public boolean isUserIdUnique(int id) {
+		User user = findUserById(id);
+		return ( user == null);
+	}
 	
 }

@@ -32,12 +32,12 @@ public class AppController {
 	/*
 	 * This method will list all existing employees.
 	 */
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
-	public String listEmployees(ModelMap model) {
+	@RequestMapping(value = { "/", "/main"}, method = RequestMethod.GET)
+	public String showMain(ModelMap model) {
 
-		List<User> employees = service.findAllUsers();
-		model.addAttribute("employees", employees);
-		return "allemployees";
+//		List<User> employees = service.findAllUsers();
+//		model.addAttribute("employees", employees);
+		return "main";
 	}
 
 	/*
@@ -56,7 +56,7 @@ public class AppController {
 	 * saving employee in database. It also validates the user input
 	 */
 	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public String saveEmployee(@Valid User employee, BindingResult result,
+	public String saveEmployee(@Valid User user, BindingResult result,
 			ModelMap model) {
 
 		if (result.hasErrors()) {
@@ -71,15 +71,15 @@ public class AppController {
 		 * framework as well while still using internationalized messages.
 		 * 
 		 */
-		if(!service.isEmployeeSsnUnique(employee.getId(), employee.getSsn())){
-			FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new String[]{employee.getSsn()}, Locale.getDefault()));
-		    result.addError(ssnError);
+		if(!service.isUserIdUnique(user.getId())){
+			FieldError idError =new FieldError("user","id",messageSource.getMessage("non.unique.id", new Integer[]{user.getId()}, Locale.getDefault()));
+		    result.addError(idError);
 			return "registration";
 		}
 		
-		service.saveEmployee(employee);
+		service.saveUser(user);
 
-		model.addAttribute("success", "Employee " + employee.getName() + " registered successfully");
+		model.addAttribute("success", "Employee " + user.getLogin() + " registered successfully");
 		return "success";
 	}
 
@@ -88,8 +88,8 @@ public class AppController {
 	 * This method will provide the medium to update an existing employee.
 	 */
 	@RequestMapping(value = { "/edit-{ssn}-employee" }, method = RequestMethod.GET)
-	public String editEmployee(@PathVariable String ssn, ModelMap model) {
-		User employee = service.findEmployeeBySsn(ssn);
+	public String editEmployee(@PathVariable int id, ModelMap model) {
+		User employee = service.findUserById(id);
 		model.addAttribute("employee", employee);
 		model.addAttribute("edit", true);
 		return "registration";
@@ -100,22 +100,22 @@ public class AppController {
 	 * updating employee in database. It also validates the user input
 	 */
 	@RequestMapping(value = { "/edit-{ssn}-employee" }, method = RequestMethod.POST)
-	public String updateEmployee(@Valid User employee, BindingResult result,
+	public String updateEmployee(@Valid User user, BindingResult result,
 			ModelMap model, @PathVariable String ssn) {
 
 		if (result.hasErrors()) {
 			return "registration";
 		}
 
-		if(!service.isEmployeeSsnUnique(employee.getId(), employee.getSsn())){
-			FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new String[]{employee.getSsn()}, Locale.getDefault()));
+		if(!service.isUserIdUnique(user.getId())){
+			FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new Integer[]{user.getId()}, Locale.getDefault()));
 		    result.addError(ssnError);
 			return "registration";
 		}
 
-		service.updateEmployee(employee);
+		service.updateUser(user);
 
-		model.addAttribute("success", "Employee " + employee.getName()	+ " updated successfully");
+		model.addAttribute("success", "Employee " + user.getLogin()	+ " updated successfully");
 		return "success";
 	}
 
@@ -124,8 +124,8 @@ public class AppController {
 	 * This method will delete an employee by it's SSN value.
 	 */
 	@RequestMapping(value = { "/delete-{ssn}-employee" }, method = RequestMethod.GET)
-	public String deleteEmployee(@PathVariable String ssn) {
-		service.deleteEmployeeBySsn(ssn);
+	public String deleteEmployee(@PathVariable int id) {
+		service.deleteUserById(id);
 		return "redirect:/list";
 	}
 

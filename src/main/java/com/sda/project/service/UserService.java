@@ -18,4 +18,6 @@ public interface UserService {
 	void deleteUserById (int id);
 
 	List<User> findAllUsers(); 
+	
+	boolean isUserIdUnique(int id);
 }

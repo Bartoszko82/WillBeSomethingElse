@@ -7,15 +7,15 @@ import com.sda.project.model.User;
 
 public interface UserService {
 
-	User findUserById(int id);
-	
-	//create user?
+
 	
 	void saveUser(User user);
 	
-	void updateUser(User user);
+//	void updateUser(User user);
+//	
+//	void deleteUserById(int id);
 	
-	void deleteUserById(int id);
+	User findUserById(int id);
 
 	List<User> findAllUsers(); 
 	

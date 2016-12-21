@@ -6,11 +6,12 @@ import com.sda.project.model.User;
 
 public interface UserDao {
 
-	User findUserById(int id);
 
 	void saveUser(User user);
 	
-	void deleteUserById(int id);
+//	void deleteUserById(int id);
+
+	User findUserById(int id);
 	
 	List<User> findAllUsers();
 }

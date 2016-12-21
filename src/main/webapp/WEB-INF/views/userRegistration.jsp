@@ -47,6 +47,6 @@
 	</form:form>
 	<br/>
 	<br/>
-	Go back to <a href="<c:url value='/list' />">List of All Employees</a>
+	Go back to <a href="<c:url value='/main' />">Main</a>
 </body>
 </html>

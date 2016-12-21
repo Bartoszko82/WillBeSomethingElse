@@ -35,8 +35,8 @@ public class AppController {
 	@RequestMapping(value = { "/", "/main"}, method = RequestMethod.GET)
 	public String showMain(ModelMap model) {
 
-//		List<User> users = service.findAllUsers();
-//		model.addAttribute("main", users);
+		List<User> users = service.findAllUsers();
+		model.addAttribute("main", users);
 		return "main";
 	}
 
@@ -44,7 +44,7 @@ public class AppController {
 	 * This method will provide the medium to add a new employee.
 	 */
 	@RequestMapping(value = { "/newUser" }, method = RequestMethod.GET)
-	public String newEmployee(ModelMap model) {
+	public String newUser(ModelMap model) {
 		User user = new User();
 		model.addAttribute("user", user);
 		model.addAttribute("edit", false);
@@ -56,7 +56,7 @@ public class AppController {
 	 * saving employee in database. It also validates the user input
 	 */
 	@RequestMapping(value = { "/newUser" }, method = RequestMethod.POST)
-	public String saveEmployee(@Valid User user, BindingResult result,
+	public String saveUser(@Valid User user, BindingResult result,
 			ModelMap model) {
 
 		if (result.hasErrors()) {

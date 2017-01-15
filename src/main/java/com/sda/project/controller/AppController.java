@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sda.project.model.Item;
+import com.sda.project.model.ItemComplicated;
 import com.sda.project.model.User;
 import com.sda.project.service.ItemService;
 //import com.sda.project.model.EmployeeService;
@@ -35,15 +36,32 @@ public class AppController {
 	MessageSource messageSource;
 
 	/*
-	 * This method will show main page.
+	 * This method will show main page
 	 */
 	@RequestMapping(value = { "/", "/main"}, method = RequestMethod.GET)
 	public String showMain(ModelMap model) {
-//		List<Item> items = itemService.findAllItems();
-//		model.addAttribute("items", items);
+		List<Item> items = itemService.findAllItems();
+		model.addAttribute("items", items);
 		return "main";
 	}
+	
+	@RequestMapping(value = { "/newItem" }, method = RequestMethod.GET)
+	public String newItem(ModelMap model) {
+		ItemComplicated item = new ItemComplicated();
+		model.addAttribute("item", item);
+		model.addAttribute("edit", false);
+		return "itemRegistration";
+	}
+	
+	@RequestMapping(value = { "/newItem" }, method = RequestMethod.POST)
+	public String saveItem(Item item, ModelMap model) {
 
+		itemService.saveItem(item);
+
+		model.addAttribute("success", "Item registered successfully");
+		return "success";
+	}
+	
 	/*
 	 * This method will list all existing users.
 	 */
@@ -107,22 +125,7 @@ public class AppController {
 		return "success";
 	}
 
-	@RequestMapping(value = { "/newItem" }, method = RequestMethod.GET)
-	public String newItem(ModelMap model) {
-		Item item = new Item();
-		model.addAttribute("item", item);
-		model.addAttribute("edit", false);
-		return "itemRegistration";
-	}
-	
-	@RequestMapping(value = { "/newItem" }, method = RequestMethod.POST)
-	public String saveItem(Item item, ModelMap model) {
 
-		itemService.saveItem(item);
-
-		model.addAttribute("success", "Item registered successfully");
-		return "success";
-	}
 	
 	/*
 	 * This method will provide the medium to update an existing employee.

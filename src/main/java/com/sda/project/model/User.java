@@ -57,13 +57,13 @@ public class User {
 		this.email = email;
 	}
 	
-	public List<Item> getItemsList() {
-		return itemsList;
-	}
-	
-	public void setItemsList(List<Item> itemsList) {
-		this.itemsList = itemsList;
-	}
+//	public List<Item> getItemsList() {
+//		return itemsList;
+//	}
+//	
+//	public void setItemsList(List<Item> itemsList) {
+//		this.itemsList = itemsList;
+//	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -84,8 +84,8 @@ public class User {
 	@Column(name = "EMAIL", nullable = false)
 	private String email;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asignedTo")
-	private List<Item> itemsList;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asignedTo")
+//	private List<Item> itemsList;
 
 
 	@Override

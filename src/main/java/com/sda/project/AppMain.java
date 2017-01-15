@@ -17,29 +17,6 @@ public class AppMain {
         
         ItemService itemService = (ItemService) context.getBean("itemService");
  
-//        /*
-//         * Create Employee1
-//         */
-//        User user1 = new User();
-//        user1.setLogin("Han Yenn");
-// 
-//        /*
-//         * Create Employee2
-//         */
-// 
-//        /*
-//         * Persist both Employees
-//         */
-//        service.saveUser(user1);
-// 
-//        /*
-//         * Get all employees list from database
-//         */
-//        List<User> users = service.findAllUsers();
-//        for (User u : users) {
-//            System.out.println(u);
-//        }
- 
         context.close();
     }
 }

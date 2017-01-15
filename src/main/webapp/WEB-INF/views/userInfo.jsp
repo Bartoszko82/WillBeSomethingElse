@@ -17,6 +17,9 @@
 	<a href="<c:url value='/edit-${user.id}-user' />">edit User</a></td>
 	<a href="<c:url value='/delete-${user.id}-user' />">delete User</a></td>
 	<br/>
-	Go back to <a href="<c:url value='/todoMain' />">Main</a>
+	
+	Go back to <a href="<c:url value='/usersList' />">Users List</a>
+	<br/>
+	Go back to <a href="<c:url value='/main' />">Main</a>
 </body>
 </html>

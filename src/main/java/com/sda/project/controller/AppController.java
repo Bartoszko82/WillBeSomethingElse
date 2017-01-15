@@ -30,23 +30,37 @@ public class AppController {
 	MessageSource messageSource;
 
 	/*
-	 * This method will list all existing employees.
+	 * This method will show main page.
 	 */
 	@RequestMapping(value = { "/", "/main"}, method = RequestMethod.GET)
 	public String showMain(ModelMap model) {
-
 		List<User> users = service.findAllUsers();
-//		User singleUser = new User();
-//		singleUser.setUser_id(666);
-//		singleUser.setLogin("Mariusz");
 		model.addAttribute("users", users);
-//		model.addAttribute("user", singleUser);
-//		model.addAttribute("test", "TEST");
-		return "todoMain";
+		return "main";
 	}
 
 	/*
-	 * This method will provide the medium to add a new employee.
+	 * This method will list all existing users.
+	 */
+	@RequestMapping(value = { "/usersList" }, method = RequestMethod.GET)
+	public String showUsers(ModelMap model) {
+		List<User> users = service.findAllUsers();
+		model.addAttribute("users", users);
+		return "usersList";
+	}
+
+	/*
+	 * This method will show user details.
+	 */
+	@RequestMapping(value = { "/user-{id}-info" }, method = RequestMethod.GET)
+	public String showOneUser(ModelMap model, @PathVariable int id) {
+		User user = service.findUserById(id);
+		model.addAttribute("user", user);
+		return "userInfo";
+	}
+
+	/*
+	 * This method will provide the medium to add a new user.
 	 */
 	@RequestMapping(value = { "/newUser" }, method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
@@ -54,8 +68,8 @@ public class AppController {
 		model.addAttribute("user", user);
 		model.addAttribute("edit", false);
 		return "userRegistration";
-	}
-
+	}	
+	
 	/*
 	 * This method will be called on form submission, handling POST request for
 	 * saving employee in database. It also validates the user input
@@ -88,12 +102,11 @@ public class AppController {
 		return "success";
 	}
 
-
 	/*
 	 * This method will provide the medium to update an existing employee.
 	 */
 	@RequestMapping(value = { "/edit-{id}-user" }, method = RequestMethod.GET)
-	public String editEmployee(@PathVariable int id, ModelMap model) {
+	public String editUser(@PathVariable int id, ModelMap model) {
 		User user = service.findUserById(id);
 		model.addAttribute("user", user);
 		model.addAttribute("edit", true);
@@ -104,23 +117,8 @@ public class AppController {
 	 * This method will be called on form submission, handling POST request for
 	 * updating employee in database. It also validates the user input
 	 */
-	
-	@RequestMapping(value = { "/usersList" }, method = RequestMethod.GET)
-	public String showUsers(ModelMap model) {
-		List<User> users = service.findAllUsers();
-		model.addAttribute("users", users);
-		return "usersList";
-	}
-	
-	@RequestMapping(value = { "/user-{id}-info" }, method = RequestMethod.GET)
-	public String showOneUser(ModelMap model, @PathVariable int id) {
-		User user = service.findUserById(id);
-		model.addAttribute("user", user);
-		return "userInfo";
-	}
-	
 	@RequestMapping(value = { "/edit-{id}-user" }, method = RequestMethod.POST)
-	public String updateEmployee(@Valid User user, BindingResult result,
+	public String updateUser(@Valid User user, BindingResult result,
 			ModelMap model, @PathVariable String id) {
 		
 		if (result.hasErrors()) {
@@ -138,15 +136,14 @@ public class AppController {
 		model.addAttribute("success", "User " + user.getLogin()	+ " updated successfully");
 		return "success";
 	}
-
 	
 	/*
 	 * This method will delete an employee by it's SSN value.
 	 */
 	@RequestMapping(value = { "/delete-{id}-user" }, method = RequestMethod.GET)
-	public String deleteEmployee(@PathVariable int id) {
+	public String deleteUser(@PathVariable int id) {
 		service.deleteUserById(id);
-		return "redirect:/main";
+		return "redirect:/usersList";
 	}
 
 }

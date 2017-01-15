@@ -49,6 +49,6 @@
 	</form:form>
 	<br/>
 	<br/>
-	Go back to <a href="<c:url value='/todoMain' />">Main</a>
+	Go back to <a href="<c:url value='/main' />">Main</a>
 </body>
 </html>

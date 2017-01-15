@@ -27,7 +27,7 @@
 	
 	<div>
 	<a href="<c:url value='/newUser' />">Add New User</a>
-	<td><a href="<c:url value='/usersList' />">Manage Users</a></td>
+	<a href="<c:url value='/usersList' />">Manage Users</a>
 	</div>
 </body>
 </html>

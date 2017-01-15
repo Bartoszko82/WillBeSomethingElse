@@ -9,16 +9,18 @@
 <body>
 	<h2>Main Page</h2>	
 
+	<a href="<c:url value='/newItem' />">Add New Item</a>
+	
 	
 	<table>
 		<tr>
-			<td>Id</td><td>Login</td>
+			<td>Item</td>
 		</tr>
 		
-		<c:forEach items='${users}' var="user">
+		<c:forEach items='${items}' var="item">
 			<tr>
-			<td>${user.id}</td>
-			<td>${user.login}</td>
+			<td>${item.itemId}</td>
+			<td>${item.title}</td>
 			
 			</tr>
 		</c:forEach>

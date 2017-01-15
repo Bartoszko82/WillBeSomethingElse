@@ -24,41 +24,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="USER")
 public class User {
 
-	public int getUser_id() {
+	
+	public int getUserId() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUserId(int user_id) {
 		this.user_id = user_id;
 	}
-
-	public List<Item> getItemsList() {
-		return itemsList;
-	}
-
-	public void setItemsList(List<Item> itemsList) {
-		this.itemsList = itemsList;
-	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int user_id;
-
-	@Size(min=3, max=50)
-	@Column(name = "LOGIN", nullable = false)
-	private String login;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asignedTo")
-	private List<Item> itemsList;
-	
-	public int getId() {
-		return user_id;
-	}
-
-//	public void setId(int id) {
-//		this.id = id;
-//	}
-
+		
 	public String getLogin() {
 		return login;
 	}
@@ -66,6 +40,52 @@ public class User {
 	public void setLogin(String login) {
 		this.login = login;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public List<Item> getItemsList() {
+		return itemsList;
+	}
+	
+	public void setItemsList(List<Item> itemsList) {
+		this.itemsList = itemsList;
+	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int user_id;
+
+	@NotNull (message = "Login con`t be empty")
+	@Size(min=3, max=50)
+	@Column(name = "LOGIN", nullable = false)
+	private String login;
+	
+	@NotNull
+	@Size(min=3, max=50)
+	@Column(name = "PASSWORD", nullable = false)
+	private String password;
+	
+	@NotNull
+	@Size(min=3, max=50)
+	@Column(name = "EMAIL", nullable = false)
+	private String email;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asignedTo")
+	private List<Item> itemsList;
 
 
 	@Override

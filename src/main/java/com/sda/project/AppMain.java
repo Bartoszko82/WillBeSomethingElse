@@ -1,12 +1,10 @@
 package com.sda.project;
  
-import java.util.List;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
 import com.sda.project.configuration.AppConfig;
-import com.sda.project.model.User;
+import com.sda.project.service.ItemService;
 import com.sda.project.service.UserService;
  
  
@@ -15,7 +13,9 @@ public class AppMain {
     public static void main(String args[]) {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
  
-        UserService service = (UserService) context.getBean("userService");
+        UserService userService = (UserService) context.getBean("userService");
+        
+        ItemService itemService = (ItemService) context.getBean("itemService");
  
 //        /*
 //         * Create Employee1

@@ -16,7 +16,7 @@
 		</tr>
 		<c:forEach items='${users}' var="user">
 			<tr>
-			<td><a href="<c:url value='/user-${user.id}-info' />">${user.login}</a></td>
+			<td><a href="<c:url value='/user-${user.userId}-info' />">${user.login}</a></td>
 			</tr>
 		</c:forEach>
 	</table>

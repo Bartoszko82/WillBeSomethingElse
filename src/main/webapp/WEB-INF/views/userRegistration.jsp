@@ -12,7 +12,7 @@
 <style>
 
 	.error {
-		color: #ff0000;
+			color: #ff0000;
 	}
 </style>
 
@@ -21,16 +21,24 @@
 <body>
 
 	<h2>Registration Form</h2>
-	
-	<p>${user}</p>
  
 	<form:form method="POST" modelAttribute="user">
-		<form:input type="hidden" path="id" id="id"/>
+		<form:input type="hidden" path="userId" id="id"/>
 		<table>
 			<tr>
 				<td><label for="login">Login: </label> </td>
 				<td><form:input path="login" id="login"/></td>
 				<td><form:errors path="login" cssClass="error"/></td>
+		    </tr>
+		    <tr>
+				<td><label for="password">Password: </label> </td>
+				<td><form:input path="password" id="password"/></td>
+				<td><form:errors path="password" cssClass="error"/></td>
+		    </tr>
+		      <tr>
+				<td><label for="email">Email: </label> </td>
+				<td><form:input path="email" id="email"/></td>
+				<td><form:errors path="email" cssClass="error"/></td>
 		    </tr>
 	    
 			<tr>

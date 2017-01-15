@@ -24,6 +24,8 @@ public class UserServiceImpl implements UserService {
 		User entity = userDao.findUserById(user.getUserId());
 		if(entity!=null){
 			entity.setLogin(user.getLogin());
+			entity.setEmail(user.getEmail());
+			entity.setPassword(user.getPassword());
 		}
 	}
 

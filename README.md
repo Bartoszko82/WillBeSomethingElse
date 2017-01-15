@@ -27,6 +27,8 @@ hibernate.format_sql = true
 
 * Database Creation
 
+drop schema if exists `final`;
+create schema `final`;
 use `final`;
 DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS `item`;

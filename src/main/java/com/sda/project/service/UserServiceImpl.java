@@ -14,31 +14,30 @@ import com.sda.project.model.User;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserDao dao;
-	
-
+	UserDao Userdao;
 
 	public void saveUser(User user) {
-		dao.saveUser(user);
+		Userdao.saveUser(user);
 	}
 
-//	public void updateUser(User user) {
-//		User entity = dao.findUserById(user.getId());
-//		if(entity!=null){
-//			entity.setLogin(user.getLogin());
-//		}
-//	}
-//
-//	public void deleteUserById(int id) {
-//		dao.deleteUserById(id);
-//	}
+	public void updateUser(User user) {
+		User entity = Userdao.findUserById(user.getId());
+		if(entity!=null){
+			entity.setLogin(user.getLogin());
+		}
+		Userdao.saveUser(entity);
+	}
+
+	public void deleteUserById(int id) {
+		Userdao.deleteUserById(id);
+	}
 	
 	public User findUserById(int id) {
-		return dao.findUserById(id);
+		return Userdao.findUserById(id);
 	}
 	
 	public List<User> findAllUsers() {
-		return dao.findAllUsers();
+		return Userdao.findAllUsers();
 	}
 	
 	public boolean isUserIdUnique(int id) {

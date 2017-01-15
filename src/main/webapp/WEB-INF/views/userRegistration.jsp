@@ -21,6 +21,8 @@
 <body>
 
 	<h2>Registration Form</h2>
+	
+	<p>${user}</p>
  
 	<form:form method="POST" modelAttribute="user">
 		<form:input type="hidden" path="id" id="id"/>
@@ -47,6 +49,6 @@
 	</form:form>
 	<br/>
 	<br/>
-	Go back to <a href="<c:url value='/main' />">Main</a>
+	Go back to <a href="<c:url value='/todoMain' />">Main</a>
 </body>
 </html>

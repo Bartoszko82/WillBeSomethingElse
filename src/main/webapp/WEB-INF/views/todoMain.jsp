@@ -3,28 +3,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MAIN</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>MAIN</title>
 </head>
 <body>
-	<h2>Users</h2>	
+	<h2>Main Page</h2>	
+
+	
 	<table>
 		<tr>
 			<td>Id</td><td>Login</td>
 		</tr>
 		
-		<!-- -->
-		<c:forEach items="${users}" var="user">
+		<c:forEach items='${users}' var="user">
 			<tr>
 			<td>${user.id}</td>
 			<td>${user.login}</td>
-			<td><a href="<c:url value='/edit-${user.id}-user' />">edit</a></td>
-			<td><a href="<c:url value='/delete-${user.id}-user' />">delete</a></td>
+			
 			</tr>
 		</c:forEach>
-		<!-- -->
+	
 	</table>
-	<br/>
+	
+	<div>
 	<a href="<c:url value='/newUser' />">Add New User</a>
+	<td><a href="<c:url value='/usersList' />">Manage Users</a></td>
+	</div>
 </body>
 </html>

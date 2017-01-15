@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
 		if(entity!=null){
 			entity.setLogin(user.getLogin());
 		}
-		Userdao.saveUser(entity);
 	}
 
 	public void deleteUserById(int id) {

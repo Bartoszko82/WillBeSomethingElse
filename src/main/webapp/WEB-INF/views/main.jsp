@@ -32,6 +32,8 @@
 					<div class="itemStyle">
 						<p>${item.title}</p><br/>
 						<p>${item.body}</p><br/>
+						<p>Priority: ${item.priority}</p><br/>
+						<p>Severity: ${item.severity}</p><br/>
 						<p><a href="<c:url value='/edit-${item.itemId}-item' />">edit</a></p>
 						<br/>
 						<p><a href="<c:url value='/delete-${item.itemId}-item' />">delete</a></p>

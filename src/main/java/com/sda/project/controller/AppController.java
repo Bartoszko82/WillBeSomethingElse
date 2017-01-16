@@ -61,6 +61,34 @@ public class AppController {
 		return "success";
 	}
 	
+	@RequestMapping(value = { "/edit-{itemId}-item" }, method = RequestMethod.GET)
+	public String editItem(@PathVariable int itemId, ModelMap model) {
+		Item item = itemService.findItemById(itemId);
+		model.addAttribute("item", item);
+		model.addAttribute("edit", true);
+		return "itemRegistration";
+	}
+	
+	@RequestMapping(value = { "/edit-{itemId}-item" }, method = RequestMethod.POST)
+	public String updateItem(@Valid Item item, BindingResult result,
+			ModelMap model, @PathVariable String itemId) {
+		
+		if (result.hasErrors()) {
+			return "itemRegistration";
+		}
+
+//		if(!userService.isUserIdUnique(user.getUserId())){
+//			FieldError idError =new FieldError("user","userId",messageSource.getMessage("non.unique.id", new Integer[]{user.getUserId()}, Locale.getDefault()));
+//		    result.addError(idError);
+//			return "userRegistration";
+//		}
+
+		itemService.updateItem(item);
+
+		model.addAttribute("success", "Item " + item.getTitle()	+ " updated successfully");
+		return "success";
+	}
+	
 	@RequestMapping(value = { "/delete-{itemId}-item" }, method = RequestMethod.GET)
 	public String deleteItem(@PathVariable int itemId) {
 		itemService.deleteItemById(itemId);
@@ -110,14 +138,7 @@ public class AppController {
 			return "userRegistration";
 		}
 
-		/*
-		 * Preferred way to achieve uniqueness of field [ssn] should be implementing custom @Unique annotation 
-		 * and applying it on field [ssn] of Model class [Employee].
-		 * 
-		 * Below mentioned peace of code [if block] is to demonstrate that you can fill custom errors outside the validation
-		 * framework as well while still using internationalized messages.
-		 * 
-		 */
+		
 		if(!userService.isUserIdUnique(user.getUserId())){
 			FieldError idError = new FieldError("user","userId",messageSource.getMessage("non.unique.id", new Integer[]{user.getUserId()}, Locale.getDefault()));
 		    result.addError(idError);

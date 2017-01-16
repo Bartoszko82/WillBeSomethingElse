@@ -47,6 +47,22 @@ public class Item {
 		this.body = body;
 	}
 
+//	public ItemType getType() {
+//		return type;
+//	}
+//
+//	public void setType(ItemType type) {
+//		this.type = type;
+//	}
+	
+//	public ItemState getState() {
+//	return state;
+//}
+
+//public void setState(ItemState state) {
+//	this.state = state;
+//}
+
 	public int getPriority() {
 		return priority;
 	}
@@ -62,6 +78,16 @@ public class Item {
 	public void setSeverity(int severity) {
 		this.severity = severity;
 	}
+
+//	public User getAsignedTo() {
+//		return asignedTo;
+//	}
+//
+//	public void setAsignedTo(User asignedTo) {
+//		this.asignedTo = asignedTo;
+//	}
+
+
 
 	public int getOriginalEstimate() {
 		return originalEstimate;
@@ -102,7 +128,12 @@ public class Item {
 	@Size(min=1, max=500)
 	@Column(name="BODY", nullable = false)
 	private String body;
-
+//	
+//	@Enumerated(EnumType.STRING)
+//	private ItemType type;
+//	
+//	@Enumerated(EnumType.STRING)
+//	private ItemState state;
 	
 //	@NotNull
 //	@Range(min=1, max=5)
@@ -113,6 +144,13 @@ public class Item {
 	@Range(min=1, max=3)
 	@Column(name = "SEVERITY", nullable = false)
 	private int severity;
+	
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+//	private List<Tag> tags;
+	
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "USER_ID", nullable = false)
+//	private User asignedTo;
 	
 	@Column(name = "ESTIMATE", nullable = false)
 	private int originalEstimate;

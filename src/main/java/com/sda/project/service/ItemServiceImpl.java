@@ -24,6 +24,12 @@ public class ItemServiceImpl implements ItemService {
 		Item entity = itemDao.findItemById(item.getItemId());
 		if(entity!=null){
 			entity.setTitle(item.getTitle());
+			entity.setBody(item.getBody());
+			entity.setPriority(item.getPriority());
+			entity.setSeverity(item.getSeverity());
+			entity.setOriginalEstimate(item.getOriginalEstimate());
+			entity.setRemainingTime(item.getRemainingTime());
+			entity.setCompletitionTime(item.getCompletitionTime());
 		}
 	}
 

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sda.project.model.Item;
-import com.sda.project.model.ItemComplicated;
 import com.sda.project.model.User;
 import com.sda.project.service.ItemService;
 //import com.sda.project.model.EmployeeService;
@@ -47,7 +46,7 @@ public class AppController {
 	
 	@RequestMapping(value = { "/newItem" }, method = RequestMethod.GET)
 	public String newItem(ModelMap model) {
-		ItemComplicated item = new ItemComplicated();
+		Item item = new Item();
 		model.addAttribute("item", item);
 		model.addAttribute("edit", false);
 		return "itemRegistration";
@@ -60,6 +59,12 @@ public class AppController {
 
 		model.addAttribute("success", "Item registered successfully");
 		return "success";
+	}
+	
+	@RequestMapping(value = { "/delete-{itemId}-item" }, method = RequestMethod.GET)
+	public String deleteItem(@PathVariable int itemId) {
+		itemService.deleteItemById(itemId);
+		return "redirect:/main";
 	}
 	
 	/*

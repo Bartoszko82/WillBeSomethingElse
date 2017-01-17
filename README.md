@@ -1,21 +1,14 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### SDA JAVA course - final project ###
+* authors: Bartosz and Piotr Zawodniak.
+* 0.0.1.
+* please be advised that this is early stage of developement, with only basic functions implemented.
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
 * Database configuration
-
-file: application.properties
 
 jdbc.driverClassName = com.mysql.jdbc.Driver
 jdbc.url = jdbc:mysql://localhost:3306/final
@@ -24,6 +17,7 @@ jdbc.password = final01
 hibernate.dialect = org.hibernate.dialect.MySQLDialect
 hibernate.show_sql = true
 hibernate.format_sql = true
+
 
 * Database Creation
 
@@ -37,13 +31,17 @@ DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `user` (
   `USER_ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `LOGIN` VARCHAR(48) NOT NULL,
+  `PASSWORD` VARCHAR(48) NOT NULL,
+  `EMAIL` VARCHAR(48) NOT NULL,
   PRIMARY KEY (`USER_ID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `item` (
   `ITEM_ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ITEM_STATE` VARCHAR(48) NOT NULL,
   `TITLE` VARCHAR(48) NOT NULL,
   `BODY` VARCHAR(48) NOT NULL,
+  `ITEM_TYPE` VARCHAR(48) NOT NULL,
   `PRIORITY` INT(10),
   `SEVERITY` INT(10),
   `ESTIMATE` INT(10),
@@ -57,19 +55,3 @@ CREATE TABLE `tag` (
   `NAME` VARCHAR(48) NOT NULL,
   PRIMARY KEY (`TAG_ID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact

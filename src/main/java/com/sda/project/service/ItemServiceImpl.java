@@ -25,11 +25,19 @@ public class ItemServiceImpl implements ItemService {
 		if(entity!=null){
 			entity.setTitle(item.getTitle());
 			entity.setBody(item.getBody());
+			entity.setType(item.getType());
 			entity.setPriority(item.getPriority());
 			entity.setSeverity(item.getSeverity());
 			entity.setOriginalEstimate(item.getOriginalEstimate());
 			entity.setRemainingTime(item.getRemainingTime());
 			entity.setCompletitionTime(item.getCompletitionTime());
+		}
+	}
+	
+	public void setEntityState(int itemId, String state) {
+		Item entity = itemDao.findItemById(itemId);
+		if(entity!=null){
+			entity.setState(state);
 		}
 	}
 

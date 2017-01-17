@@ -31,6 +31,14 @@ public class Item {
 		this.item_id = item_id;
 	}
 
+	public String getState() {
+	return state;
+	}	
+
+	public void setState(String state) {
+	this.state = state;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -47,21 +55,13 @@ public class Item {
 		this.body = body;
 	}
 
-//	public ItemType getType() {
-//		return type;
-//	}
-//
-//	public void setType(ItemType type) {
-//		this.type = type;
-//	}
-	
-//	public ItemState getState() {
-//	return state;
-//}
+	public String getType() {
+		return type;
+	}
 
-//public void setState(ItemState state) {
-//	this.state = state;
-//}
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public int getPriority() {
 		return priority;
@@ -128,12 +128,14 @@ public class Item {
 	@Size(min=1, max=500)
 	@Column(name="BODY", nullable = false)
 	private String body;
-//	
+	
 //	@Enumerated(EnumType.STRING)
-//	private ItemType type;
-//	
+	@Column(name = "ITEM_TYPE", nullable = false)
+	private String type;
+	
 //	@Enumerated(EnumType.STRING)
-//	private ItemState state;
+	@Column(name = "ITEM_STATE", nullable = false)
+	private String state;
 	
 //	@NotNull
 //	@Range(min=1, max=5)

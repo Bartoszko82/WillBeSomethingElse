@@ -1,10 +1,12 @@
 package com.sda.project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import javax.validation.Valid;
 
+import org.omg.CORBA.DomainManagerOperations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -39,14 +41,32 @@ public class AppController {
 	 */
 	@RequestMapping(value = { "/", "/main"}, method = RequestMethod.GET)
 	public String showMain(ModelMap model) {
+		List<Item> readyItems = new ArrayList<Item>();
+		List<Item> assignedItems = new ArrayList<Item>();
+		List<Item> doneItems = new ArrayList<Item>();
 		List<Item> items = itemService.findAllItems();
-		model.addAttribute("items", items);
+			
+		for(Item i : items) {
+			if("ASSIGNED".equals(i.getState())){
+				assignedItems.add(i);
+			} else if ("DONE".equals(i.getState())) {
+				doneItems.add(i);
+			} else {
+				readyItems.add(i);
+			}
+			
+		}
+		model.addAttribute("assigned", assignedItems);
+		model.addAttribute("done", doneItems);
+		model.addAttribute("ready", readyItems);
+//		model.addAttribute("items", items);
 		return "main";
 	}
 	
 	@RequestMapping(value = { "/newItem" }, method = RequestMethod.GET)
 	public String newItem(ModelMap model) {
 		Item item = new Item();
+		
 		model.addAttribute("item", item);
 		model.addAttribute("edit", false);
 		return "itemRegistration";
@@ -55,10 +75,29 @@ public class AppController {
 	@RequestMapping(value = { "/newItem" }, method = RequestMethod.POST)
 	public String saveItem(Item item, ModelMap model) {
 
+		item.setState("ASSIGNED");
 		itemService.saveItem(item);
 
 		model.addAttribute("success", "Item registered successfully");
 		return "success";
+	}
+	
+	@RequestMapping(value = { "/set-{itemId}-AsReady" }, method = RequestMethod.GET)
+	public String setItemToNew(ModelMap model, @PathVariable int itemId) {
+		itemService.setEntityState(itemId, "READY");
+		return "redirect:/main";
+	}
+	
+	@RequestMapping(value = { "/set-{itemId}-AsAssigned" }, method = RequestMethod.GET)
+	public String setItemToAssigned(ModelMap model, @PathVariable int itemId) {
+		itemService.setEntityState(itemId, "ASSIGNED");
+		return "redirect:/main";
+	}
+	
+	@RequestMapping(value = { "/set-{itemId}-AsDone" }, method = RequestMethod.GET)
+	public String setItemToDone(ModelMap model, @PathVariable int itemId) {
+		itemService.setEntityState(itemId, "DONE");
+		return "redirect:/main";
 	}
 	
 	@RequestMapping(value = { "/edit-{itemId}-item" }, method = RequestMethod.GET)

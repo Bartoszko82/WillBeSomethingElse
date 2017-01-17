@@ -35,6 +35,15 @@
 				<td><form:input path="body" id="body"/></td>
 				<td><form:errors path="body" cssClass="error"/></td>
 		    </tr>
+		     <tr>
+				<td><label for="type">Priority: </label> </td>
+				<td><form:select path="type" id="type">
+					<option value=BUG>BUG</option>
+					<option value=TASK>TASK</option>
+					<option value=FEATURE>FEATURE</option>
+				</form:select></td>
+				<td><form:errors path="priority" cssClass="error"/></td>
+		    </tr>
 		    <tr>
 				<td><label for="priority">Priority: </label> </td>
 				<td><form:select path="priority" id="priority">

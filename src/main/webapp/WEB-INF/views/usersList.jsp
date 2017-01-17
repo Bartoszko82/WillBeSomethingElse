@@ -11,15 +11,13 @@
 
 	
 	<table>
-		<tr>
-			<td>Id</td><td>Login</td>
-		</tr>
 		<c:forEach items='${users}' var="user">
 			<tr>
 			<td><a href="<c:url value='/user-${user.userId}-info' />">${user.login}</a></td>
 			</tr>
 		</c:forEach>
 	</table>
+	<br/>
 	Go back to <a href="<c:url value='/main' />">Main</a>
 	
 </body>

@@ -16,6 +16,8 @@ public interface ItemService {
 	void deleteItemById(int id);
 	
 	Item findItemById(int id);
+	
+	public void setEntityState(int itemId, String state);
 
 	List<Item> findAllItems(); 
 	

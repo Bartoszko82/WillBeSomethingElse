@@ -2,7 +2,11 @@
 
 ### SDA JAVA course - final project ###
 * authors: Bartosz and Piotr Zawodniak.
+<<<<<<< HEAD
 * 0.0.2.
+=======
+* Version 0.0.2.
+>>>>>>> c199f11cbc47089261cce92c5fce1ac4ba3323e7
 * please be advised that this is early stage of developement, with only basic functions implemented.
 
 

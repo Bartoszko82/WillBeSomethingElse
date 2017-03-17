@@ -1,0 +1,114 @@
+/*
+page background and item background color: #d8d8d8
+login background color: #cccccc
+login border: 5px solid #cccccc radius:25px
+menu and other links/buttons background color: #999999
+menu and other links/buttons border: 5px radius:15px
+menu and other links/buttons hover background color: #f2f2f2 
+column border:  5px solid #cccccc radius:25px
+column title and columnItemContainer background color: #cccccc
+column title and columnItemContainer border: 5px solid #cccccc radius:25px
+item border: 5px solid #808080 radius:15px
+*/
+
+body {
+    background-color: #d8d8d8;
+}
+
+.login {
+    width: 1170px;
+    margin: 0px;
+    padding: 10px;
+    background-color: #cccccc;
+    border: 5px solid #cccccc;
+    border-radius: 25px;   
+}
+
+.loginWelcome {
+}
+
+.loginButton {
+    text-align: left;
+    color: blue;
+}
+
+.logoutButton {
+    text-align: right;
+    color: red;
+}
+
+
+.menu {
+    /*
+    border-width: 5px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #808080;
+    */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul > li {
+    width: 100px;
+    float: left;
+    margin: 5px;
+    padding: 0px;
+    border-width: 5px;
+    border-radius: 15px;
+    background-color: #999999;
+    text-align: center;
+}
+
+ul > li a {
+    padding: 10px;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+ul > li a:hover {
+    border-radius: 15px;
+    background-color: #f2f2f2;
+}
+
+.genericLink {
+	width: 100px;
+	display: block;
+	float: left;
+	margin: 5px;
+	padding: 10px;
+	color: #000000;
+	background-color: #999999;
+	border-width: 5px;
+	border-radius: 15px;
+	text-align: center;
+	text-decoration: none;	
+}
+
+.genericLink:hover {
+	border-radius: 15px;
+	background-color: #f2f2f2;
+}
+
+.systemMessage {
+	width: 1150px;
+	heigth: 50px;
+    margin: 10px;
+    padding: 10px;
+    border: 5px solid #d8d8d8;
+    border-radius: 25px;   
+    color: green;
+    font-weight: bold; 
+    text-align: center;
+}

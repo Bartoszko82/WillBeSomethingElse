@@ -1,0 +1,218 @@
+/*
+page background and item background color: #d8d8d8
+login background color: #cccccc
+login border: 5px solid #cccccc radius:25px
+menu and other links/buttons background color: #999999
+menu and other links/buttons border: 5px radius:15px
+menu and other links/buttons hover background color: #f2f2f2 
+column border:  5px solid #cccccc radius:25px
+column title and columnItemContainer background color: #cccccc
+column title and columnItemContainer border: 5px solid #cccccc radius:25px
+item border: 5px solid #808080 radius:15px
+*/
+
+p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.columns {
+    width: 1200px;
+    min-height: 500px;
+}
+
+aside {
+    float: left;
+    width: 380px;
+    margin: 5px;
+    padding: 0px;
+    color: #000000;
+    border: 5px solid #cccccc;
+    border-radius: 25px;
+}
+
+.columnTitle {
+    padding: 10px;
+    margin: 5px;
+    background-color: #cccccc;
+    color: #000000;
+    border: 5px solid #cccccc;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.columnItemContainer {
+    padding: 10px;
+    margin: 5px;
+    background-color: #cccccc;
+    border: 5px solid #cccccc;
+    border-radius: 25px;
+}
+
+.columnLink {
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    color: #000000;
+    background-color: #999999;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.columnLink:hover {
+    background-color: #f2f2f2;
+}
+
+.item {
+    margin: 5px;
+    padding: 10px;
+    background-color: #d8d8d8;
+    border: 5px solid #808080;
+    border-radius: 15px;
+}
+
+.itemTitleLink {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+  
+}
+
+.itemTitleLink a {
+	display: block;
+	  text-decoration: none;
+	    color: #000000;
+}
+
+.itemTitleLink:hover {
+	background-color: #f2f2f2;
+}
+
+#BUG {
+	border: 5px solid red;
+}
+
+#TASK {
+	border: 5px solid blue;
+}
+
+#FEATURE {
+	border: 5px solid green;
+}
+
+.itemBody {
+/* not used at the moment */
+}
+
+.itemTable {
+    width: 100%;
+    margin: 10px 0px; 
+    color: #000000;
+}
+
+.itemTableData {
+    width: 50%;
+    margin: 5px;
+    background-color: d8d8d8;
+    border: 5px solid;
+    border-radius: 10px;
+    text-align: center;
+}  
+
+#prt1 {
+    border-color: red;
+}
+
+#prt2 {
+    border-color: orangered;
+}
+
+#prt3 {
+    border-color: yellow;
+}
+
+#prt4 {
+    border-color: greenyellow;
+}
+
+#prt5 {
+    border-color: green;
+}
+
+#sev1 {
+    border-color: red;
+}
+
+#sev2 {
+    border-color: yellow;
+}
+
+#sev3 {
+    border-color: green;
+}
+
+.itemLink {
+    width: 25%;
+    margin: 5px;
+    background-color: #999999;
+    border: 5px #999999;
+    border-radius: 10px;
+    text-align: center;
+    color: green;
+}   
+
+.itemLink a {
+	display: block;
+	color: #000000;
+	text-decoration: none;
+}
+
+.itemLink a:hover {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}
+
+
+.itemLinkDisabled {
+    width: 25%;
+    margin: 5px;
+    color: #000000;
+    background-color: #999999;
+    border: 5px #999999;
+    border-radius: 10px;
+    text-align: center;
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.itemLinkDisabled a {
+	display: block;
+	color: #000000;
+	text-decoration: none;
+}
+
+/*
+IDEAS
+
+ul.menu > li {
+	display: inline-flex;
+	padding: 10px 20px;
+    border: 1px solid black;
+}
+
+.input{
+	padding: 0;
+	margin: 0;
+	width: 176px;
+	width: calc(100% - 4px);
+}
+
+#mainContentTitle {
+	border-bottom: 1px dashed green;
+	display:table-cell;
+	color: aquamarine;
+	text-decoration: underline;
+}
+

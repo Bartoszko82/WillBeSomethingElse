@@ -1,0 +1,295 @@
+/*
+page background and item background color: #d8d8d8
+login background color: #cccccc
+login border: 5px solid #cccccc radius:25px
+menu and other links/buttons background color: #999999
+menu and other links/buttons border: 5px radius:15px
+menu and other links/buttons hover background color: #f2f2f2 
+column border:  5px solid #cccccc radius:25px
+column title and columnItemContainer background color: #cccccc
+column title and columnItemContainer border: 5px solid #cccccc radius:25px
+item border: 5px solid #808080 radius:15px
+*/
+
+body {
+    background-color: #d8d8d8;
+}
+
+.login {
+    width: 1170px;
+    margin: 0px;
+    padding: 10px;
+    background-color: #cccccc;
+    border: 5px solid #cccccc;
+    border-radius: 25px;   
+}
+
+.loginWelcome {
+}
+
+.loginButton {
+    text-align: left;
+    color: blue;
+}
+
+.logoutButton {
+    text-align: right;
+    color: red;
+}
+
+
+.menu {
+    /*
+    border-width: 5px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #808080;
+    */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul > li {
+    width: 100px;
+    float: left;
+    margin: 5px;
+    padding: 0px;
+    border-width: 5px;
+    border-radius: 15px;
+    background-color: #999999;
+    text-align: center;
+}
+
+ul > li a {
+    padding: 10px;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+ul > li a:hover {
+    border-radius: 15px;
+    background-color: #f2f2f2;
+}
+
+.systemMessage {
+	width: 1170px;
+	heigth: 50px;
+    margin: 0px;
+    padding: 10px;
+    background-color: #cccccc;
+    border: 5px solid #cccccc;
+    border-radius: 25px;   
+}
+
+.columns {
+    width: 1200px;
+    min-height: 500px;
+}
+
+aside {
+    float: left;
+    width: 380px;
+    margin: 5px;
+    padding: 0px;
+    color: #000000;
+    border: 5px solid #cccccc;
+    border-radius: 25px;
+}
+
+.columnTitle {
+    padding: 10px;
+    margin: 5px;
+    background-color: #cccccc;
+    color: #000000;
+    border: 5px solid #cccccc;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.columnItemContainer {
+    padding: 10px;
+    margin: 5px;
+    background-color: #cccccc;
+    border: 5px solid #cccccc;
+    border-radius: 25px;
+}
+
+.columnLink {
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    color: #000000;
+    background-color: #999999;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.columnLink:hover {
+    border-radius: 15px;
+    background-color: #f2f2f2;
+}
+
+.item {
+    margin: 5px;
+    padding: 10px;
+    background-color: #d8d8d8;
+    border: 5px solid #808080;
+    border-radius: 15px;
+}
+
+.itemTitleBUG {
+    text-align: center;
+    padding: 10px;
+    color: #000000;
+    border: 5px solid red;
+    border-radius: 10px;
+}
+
+.itemTitleTASK {
+    text-align: center;
+    padding: 10px;
+    color: #000000;
+    border: 5px solid blue;
+    border-radius: 10px;
+}
+
+.itemTitleFEATURE {
+    text-align: center;
+    padding: 10px;
+    color: #000000;
+    border: 5px solid green;
+    border-radius: 10px;
+}
+
+.itemBody {
+/* not used at the moment */
+}
+
+.itemTable {
+    width: 100%;
+    margin: 10px 0px;    
+}
+
+.itemTableData {
+    width: 50%;
+    margin: 5px;
+    background-color: d8d8d8;
+    border: 5px solid;
+    border-radius: 10px;
+    text-align: center;
+}  
+
+#prt1 {
+    border-color: red;
+/*    background-color: red;*/
+}
+
+#prt2 {
+    border-color: orangered;
+/*    background-color: orangered;*/
+}
+
+#prt3 {
+    border-color: yellow;
+/*    background-color: yellow;*/
+}
+
+#prt4 {
+    border-color: greenyellow;
+/*    background-color: greenyellow;*/
+}
+
+#prt5 {
+    border-color: green;
+/*    background-color: green;*/
+}
+
+#sev1 {
+    border-color: red;
+/*    background-color: red;*/
+}
+
+#sev2 {
+    border-color: yellow;
+/*    background-color: yellow;*/
+}
+
+#sev3 {
+    border-color: green;
+/*    background-color: green;*/
+}
+
+.itemLink {
+    width: 25%;
+    margin: 5px;
+    color: black;
+    background-color: #999999;
+    border: 5px #999999;
+    border-radius: 10px;
+    text-align: center;
+/*    box-sizing: border-box;*/
+}   
+
+.itemLink a {
+	display: block;
+}
+
+
+.itemLinkDisabled {
+    width: 25%;
+    margin: 5px;
+    color: black;
+    background-color: #999999;
+    border: 5px #999999;
+    border-radius: 10px;
+    text-align: center;
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+    /*box-sizing: border-box;*/
+}  
+
+.itemLink:hover {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*
+IDEAS
+
+ul.menu > li {
+	display: inline-flex;
+	padding: 10px 20px;
+    border: 1px solid black;
+}
+
+.input{
+	padding: 0;
+	margin: 0;
+	width: 176px;
+	width: calc(100% - 4px);
+}
+
+#mainContentTitle {
+	border-bottom: 1px dashed green;
+	display:table-cell;
+	color: aquamarine;
+	text-decoration: underline;
+}
+

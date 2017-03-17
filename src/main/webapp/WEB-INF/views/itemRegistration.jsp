@@ -7,7 +7,9 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>User Registration Form</title>
+	<link href="<c:url value='/static/commonStyle.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/static/itemRegStyle.css' />" rel="stylesheet"></link>
+	<title>Item Registration</title>
 
 <style>
 
@@ -19,8 +21,25 @@
 </head>
 
 <body>
-
-	<h2>Registration Form</h2>
+		<div class="login">
+			<div class="loginWelcome">Welcome UserName</div>
+			<div class="loginButton">Login</div>
+			<div class="logoutButton">Logout</div>
+		</div>
+		<div style="clear:all;"></div>
+					
+		<nav class="menu">
+			<ul>
+				<li><a href="<c:url value='/main' />">Main</a></li>
+				<li><a href="<c:url value='/usersList' />">Users</a></li>
+				<li><a href="<c:url value='/tagsList' />">Tags</a></li>
+				
+				<!-- "buttons" below will be available for admin only -->
+				<li><a href="<c:url value='/newUser' />">New User</a></li>
+				<li><a href="<c:url value='/newTag' />">New Tag</a></li>
+			</ul>
+		</nav>
+		<div style="clear:both;"></div>
  
 	<form:form method="POST" modelAttribute="item">
 		<form:input type="hidden" path="itemId" id="id"/>
@@ -95,8 +114,5 @@
 			</tr>
 		</table>
 	</form:form>
-	<br/>
-	<br/>
-	Go back to <a href="<c:url value='/main' />">Main</a>
 </body>
 </html>

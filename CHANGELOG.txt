@@ -1,0 +1,32 @@
+### 0.0.1 2016-01-17 ###
+
+# New features
+- main page, showing list of items
+- ability to create, update and delete new Items
+- ability to create, update and delate new Users
+- ability to move Items between columns 
+
+- placeholder style created
+
+# Changes
+
+# Misc
+
+### 0.0.2 2016-??-?? ###
+
+# New features
+- method to add ResourceHandler to registry, to handle css file, and for future resources (js) 
+- login bar placeholder added for all views 
+- links to navigate through different views replaced with menu 
+
+# Changes
+- style description moved do separate files
+- style placeholder changed to basic, but functional and uniform among all wievs, style. 
+- "success" page no longer in use. Messages confirming creation/edition of new User and new Tag are displayed in main view or proper list wiev 
+
+
+# Misc
+- code cleanup
+- AppControler divided into several classes for clarity
+
+

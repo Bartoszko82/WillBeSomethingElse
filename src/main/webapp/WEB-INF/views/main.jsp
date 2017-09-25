@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link href="<c:url value='/static/commonStyle.css' />" rel="stylesheet"></link>
 		<link href="<c:url value='/static/mainStyle.css' />" rel="stylesheet"></link>
-		<title>ToDoList</title>
+		<title>BuildByJenkins</title>
 	</head>
 	<body>
 		<div class="login">

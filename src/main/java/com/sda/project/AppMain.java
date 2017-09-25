@@ -13,10 +13,11 @@ public class AppMain {
     public static void main(String args[]) {
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
  
-        UserService userService = (UserService) context.getBean("userService");
-        
-        ItemService itemService = (ItemService) context.getBean("itemService");
- 
-        context.close();
+//        UserService userService = (UserService) context.getBean("userService");
+//        	UserService userServiceII = context.getBean(UserService.class); 
+//        
+//        ItemService itemService = (ItemService) context.getBean("itemService");
+// 
+//        context.close();
     }
 }
